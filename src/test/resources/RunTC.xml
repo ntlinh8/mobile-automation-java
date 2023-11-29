@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="false" name="Suite">
+
+<test name="Learning">
+    <classes>
+      <class name="learning.Topic_01_CheckEnvironment"/>
+    </classes>
+  </test> 
+  
+</suite> 
+
