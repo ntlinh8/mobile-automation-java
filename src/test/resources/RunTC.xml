@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-<parameter name="DeviceNumber" value="1"/>
+<parameter name="DeviceNumber" value="3"/>
 <test name="Learning">
     <classes>
-      <class name="learning.Topic_01_CheckEnvironment"/>
+      <class name="learning.Topic_02_InteractElements"/>
     </classes>
   </test> 
   
