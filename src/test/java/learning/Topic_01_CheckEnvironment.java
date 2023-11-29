@@ -1,37 +1,27 @@
 package learning;
 
-
 import java.net.MalformedURLException;
-import java.net.URL;
-
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import commons.BaseTest;
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.remote.MobileCapabilityType;
 
-public class Topic_01_CheckEnvironment {
+public class Topic_01_CheckEnvironment extends BaseTest{
 	AppiumDriver<MobileElement> driver;
 	
+	@Parameters({"DeviceNumber"})
 	@BeforeTest
-	public void beforeTest()  throws MalformedURLException{
-		// Set DesiredCapabilities to send to Appium server
-		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-		desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
-		desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
-		desiredCapabilities.setCapability(MobileCapabilityType.UDID, "d91ba32a");
-		desiredCapabilities.setCapability("appPackage", "com.wdiodemoapp");
-		desiredCapabilities.setCapability("appActivity", "com.wdiodemoapp.MainActivity");
-		URL appiumServer = new URL("http://127.0.0.1:4723/wd/hub");
-		driver = new AppiumDriver<>(appiumServer, desiredCapabilities);
+	public void beforeTest(String deviceNumber) throws MalformedURLException{
+		driver = getAppiumDriver(deviceNumber);
 	}
 
 	@Test
 	public void TC01_CheckEnvironment() {
-		
+		System.out.println("TC01_CheckEnvironment");
 	}
 	
 	@AfterTest
