@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="false" name="Suite">
-<parameter name="DeviceNumber" value="3"/>
+<parameter name="DeviceNumber" value="2"/>
 <test name="Learning">
     <classes>
-      <class name="learning.Topic_02_InteractElements"/>
+      <class name="learning.Topic_02_InteractElements_1"/>
+      <class name="learning.Topic_03_InteractElements_2"/>
     </classes>
   </test> 
   

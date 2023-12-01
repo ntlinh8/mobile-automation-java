@@ -1,7 +1,5 @@
 package learning;
 
-import java.net.MalformedURLException;
-
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
@@ -12,13 +10,13 @@ import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import utilities.DataHelper;
 
-public class Topic_02_InteractElements extends BaseTest{
+public class Topic_02_InteractElements_1 extends BaseTest{
 	AppiumDriver<MobileElement> driver;
-	private String email, password, confirmPassword;
+	static protected String email, password, confirmPassword;
 	
 	@Parameters({"DeviceNumber"})
 	@BeforeTest
-	public void beforeTest(String deviceNumber) throws MalformedURLException{
+	public void beforeTest(String deviceNumber){
 		log.info("Pre-condition - Step 01: Prepare data");
 		DataHelper datahelper = DataHelper.getDataHelper();
 		email = datahelper.getEmailAddress();

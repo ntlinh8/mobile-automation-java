@@ -26,9 +26,8 @@ public class BaseTest {
 		return this.driver;
 	}
 	
-	public AppiumDriver<MobileElement> getAppiumDriver(String deviceNumber) throws MalformedURLException {
+	public AppiumDriver<MobileElement> getAppiumDriver(String deviceNumber) {
 		DesiredCapabilities desiredCapabilities = new DesiredCapabilities();
-		AppiumDriver<MobileElement> driver;
 		switch (deviceNumber) {
 		case "1":
 			desiredCapabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, GlobalConstaints.DEVICE1_PLATFORM_NAME);
@@ -58,8 +57,12 @@ public class BaseTest {
 		desiredCapabilities.setCapability("appium:nativeWebScreenshot", true);
 		desiredCapabilities.setCapability("appium:newCommandTimeout", 3600);
 		desiredCapabilities.setCapability("appium:connectHardwareKeyboard", true);
-		URL appiumServer = new URL(GlobalConstaints.APPIUM_SERVER);
-		driver = new AppiumDriver<>(appiumServer, desiredCapabilities);
+		try {
+			URL appiumServer = new URL(GlobalConstaints.APPIUM_SERVER);
+			driver = new AppiumDriver<>(appiumServer, desiredCapabilities);
+		} catch (MalformedURLException e) {
+			e.printStackTrace();
+		}
 		driver.manage().timeouts().implicitlyWait(GlobalConstaints.IMPLICIT_LONG_TIMEOUT, TimeUnit.SECONDS);
 		return driver;
 		
